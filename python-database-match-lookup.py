@@ -3,6 +3,7 @@
 #results are output to a file, fuzzy matching is used for some fields to account for variation in spelling etc.
 #dictionaries are created for all fields in order to preserve record id's
 #variable naming:
+#file is the file dataframe, db is the database dataframe
 #NAMES
 #dbname_dict, fname_dict
 #EMAILS
