@@ -5,7 +5,8 @@
 ![Snake-Base](snake.jpg)
 Can be Run with Windows Task Scheduler,
 to find your python.exe run this code separately:
+(this is the program that is run, the arguments is the path to the script.)
+
 ```import sys
 print("Python EXE : " + sys.executable)```
 
-this is the program that is run, the arguments is the path to the script.
