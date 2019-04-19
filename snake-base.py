@@ -61,7 +61,7 @@ with open("Businesspartnerpy.csv", "w", encoding="UTF-8") as f:
 import pandas as pd
 path = "Businesspartnerpy.csv"
 df = pd.read_csv(path,encoding = "utf-8")
-df.to_csv("Business_CSV.csv",encoding = "utf-8", index =False, header = True)
+df.to_csv("test_db_output.csv",encoding = "utf-8", index =False, header = True)
 
 db = df[["Record ID#","Full Business Name","Contact Person Name 1","Contact Person Name 2","Phone 1",
          "Phone 2","Phone 3","Business Email 1","Business Email 2","Business Email 3"]]
