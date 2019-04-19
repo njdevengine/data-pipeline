@@ -219,19 +219,33 @@ for a in fname_dict:
 print("Names Matched...")
 
 #Email Matching Script
+email_filter = pd.read_excel('emails.xlsx')
+email_filter = email_filter['emails'].to_list()
 for a in femail_dict:
     for b in femail_dict[a]:
-        for c in dbemail_dict:
-            for d in dbemail_dict[c]:
-                if fuzz.token_sort_ratio(b,d) >=70:
-                    m = fuzz.token_sort_ratio(b,d)
-                    fid.append(a)
-                    file_match.append(b)
-                    dbid.append(c)
-                    db_match.append(d)
-                    match_score.append(m)
-                    result ="%s %s / %s %s / Match: %s" % (a,b,c,d,m)
-                    match.append(result)
+        for c in qbemail_dict:
+            for d in qbemail_dict[c]:
+                try:
+                    if fuzz.token_sort_ratio(b,d) >=90:
+                        m = fuzz.token_sort_ratio(b,d)
+                        fid.append(a)
+                        file_match.append(b)
+                        qbid.append(c)
+                        qb_match.append(d)
+                        match_score.append(m)
+                        result ="%s %s / %s %s / Match: %s" % (a,b,c,d,m)
+                        match.append(result)
+                    elif b.split("@")[1] not in email_filter and b.split("@")[1] == d.split("@")[1]:
+                        m = "domain match"
+                        fid.append(a)
+                        file_match.append(b)
+                        qbid.append(c)
+                        qb_match.append(d)
+                        match_score.append(m)
+                        result ="%s %s / %s %s / Match: %s" % (a,b,c,d,m)
+                        match.append(result)
+                except:
+                    pass
 print("Emails Matched...")
 
 #NUMBER MATCHING SCRIPT
