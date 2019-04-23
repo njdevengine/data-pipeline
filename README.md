@@ -14,3 +14,5 @@ to find your python.exe run this code separately:
 import sys
 print("Python EXE : " + sys.executable)
 ```
+I also wrote a task scheduler that attaches conditions to whether or not this script and many others run.
+[check it out here...](https://github.com/njdevengine/task-scheduler)
