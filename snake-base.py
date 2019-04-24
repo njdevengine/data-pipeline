@@ -301,7 +301,14 @@ for h in headers:
     for i in range(len(db_match)):
         x.loc[x[h] == file_match[i], h] = data_input[i]
         x.loc[x['Business DBA'].str.contains(file_match[i], na=False), 'Business DBA'] = data_input[i]
-
+     
+#remove blanks that are not #RID
+for h in headers:
+    try:
+        x.loc[~x[h].str.contains("RID#", na=False), h] = ""
+    except:
+        pass
+     
 x = x.reset_index()
 file = file.reset_index()
 x["file"] = "B"
